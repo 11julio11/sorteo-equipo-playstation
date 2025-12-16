@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { SELECCIONES } from './data/teams';
-import { Header } from './components/Header';
-import { Controls } from './components/Controls';
-import { Results } from './components/Results';
+import { SELECCIONES } from './teams.js';
+import { Header } from './Header.jsx';
+import { Controls } from './Controls.jsx';
+import { Results } from './Results.jsx';
 
 export default function App() {
   const [num, setNum] = useState('');
