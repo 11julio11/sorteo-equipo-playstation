@@ -73,7 +73,7 @@ export default function App(){
         </div>
       </footer>
 
-      <img src="/bg.svg" alt="fondo decorativo" className="page-bg" />
+      <img src="/public/assets/fifa.jpg" alt="fondo decorativo" className="page-bg" />
     </div>
   )
 }
