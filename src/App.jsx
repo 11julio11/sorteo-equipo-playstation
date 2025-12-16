@@ -58,9 +58,9 @@ export default function App() {
         </div>
       </footer>
 
-      {/* CORRECCIÓN: Con Vite, los archivos en la carpeta `public` se sirven desde la raíz.
-          La ruta correcta no debe incluir `/public`. */}
-      <img src="/assets/fifa.jpg" alt="fondo decorativo" className="page-bg" />
+        {/* Importar imagen de fondo desde assets para que Vite la incluya en el bundle */}
+        {/* eslint-disable-next-line import/no-unresolved */}
+        <img src={require('./assets/images/fifa.jpg')} alt="fondo decorativo" className="page-bg" />
     </div>
   )
 }
