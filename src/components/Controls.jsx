@@ -15,7 +15,7 @@ export function Controls({ num, setNum, names, handleNameChange, crearCampos, so
         onChange={e => setNum(e.target.value)}
       />
       <button type="button" onClick={crearCampos}>Continuar</button>
-
+      {/* Mostrar campos de entrada para nombres si ya se creó el arreglo de nombres */}
       {names.length > 0 && (
         <form className="players-form" onSubmit={e => e.preventDefault()}>
           {names.map((_, idx) => (
@@ -23,7 +23,7 @@ export function Controls({ num, setNum, names, handleNameChange, crearCampos, so
           ))}
         </form>
       )}
-
+      {/* Mostrar botón de sorteo si ya se ingresaron los nombres*/}
       {names.length > 0 && (
         <button className="primary" onClick={sortear}>🎲 Sortear selecciones</button>
       )}
