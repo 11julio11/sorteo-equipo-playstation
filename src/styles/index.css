@@ -31,7 +31,24 @@ button.primary{margin-top:12px}
 .players-form{display:grid;gap:8px;margin-top:12px}
 
 .resultado{margin-top:18px}
-.resultado .item{background:#0b1220;padding:12px;border-radius:8px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.03)}
+.resultado .item{
+  background:#0b1220;
+  padding:12px;
+  border-radius:8px;
+  margin-bottom:10px;
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.team-crest{
+  width:48px;
+  height:32px;
+  object-fit:cover;
+  border-radius:6px;
+  flex-shrink:0;
+}
 
 .page-bg{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:1200px;opacity:0.15;pointer-events:none}
 
