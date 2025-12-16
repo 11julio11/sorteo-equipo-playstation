@@ -3,6 +3,7 @@
 Proyecto convertido a React con Vite.
 
 Requisitos:
+
 - Node.js >= 16
 
 Instalación y uso:
