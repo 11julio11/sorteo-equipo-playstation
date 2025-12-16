@@ -1,25 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import { SELECCIONES } from './data/teams';
+import { Header } from './components/Header';
+import { Controls } from './components/Controls';
+import { Results } from './components/Results';
 
-const selecciones = [
-  "Argentina","Francia","Brasil","Inglaterra","España","Portugal",
-  "Alemania","Italia","Países Bajos","Bélgica","Croacia","Uruguay",
-  "Colombia","México","Estados Unidos","Japón","Marruecos","Suiza",
-  "Dinamarca","Senegal"
-]
+export default function App() {
+  const [num, setNum] = useState('');
+  const [names, setNames] = useState([]);
+  const [resultado, setResultado] = useState([]);
 
-export default function App(){
-  const [num, setNum] = useState('')
-  const [names, setNames] = useState([])
-  const [resultado, setResultado] = useState([])
-
-  function crearCampos(){
-    const n = parseInt(num,10)
-    if (!n || n < 2 || n > selecciones.length){
-      alert('Número inválido de participantes')
-      return
+  function crearCampos() {
+    const n = parseInt(num, 10);
+    if (!n || n < 2 || n > SELECCIONES.length) {
+      alert('Número inválido de participantes');
+      return;
     }
-    setNames(Array.from({length:n}, ()=>''))
-    setResultado([])
+    setNames(Array.from({ length: n }, () => ''));
+    setResultado([]);
   }
 
   function handleNameChange(i, value){
@@ -29,42 +26,29 @@ export default function App(){
   }
 
   function sortear(){
-    if (names.some(n=>n.trim()==='')){ alert('Completa todos los nombres'); return }
-    const shuffled = [...selecciones].sort(()=>Math.random()-0.5)
-    setResultado(names.map((n,i)=>({player:n, team:shuffled[i]})))
+    if (names.some(n => n.trim() === '')) {
+      alert('Completa todos los nombres');
+      return;
+    }
+    const shuffled = [...SELECCIONES].sort(() => Math.random() - 0.5);
+    setResultado(names.map((n, i) => ({ player: n, team: shuffled[i] })));
   }
 
   return (
     <div className="app-root">
-      <header className="site-header">
-        <div className="container header-inner">
-          <h1>🎮 Sorteo PlayStation</h1>
-        </div>
-      </header>
+      <Header />
 
       <main className="container main-content">
-        <section className="controls">
-          <label htmlFor="numPlayers">Número de participantes</label>
-          <input id="numPlayers" type="number" min="2" max={selecciones.length} placeholder="Ej: 4" value={num} onChange={e=>setNum(e.target.value)} />
-          <button type="button" onClick={crearCampos}>Continuar</button>
-
-          <form className="players-form" onSubmit={e=>e.preventDefault()}>
-            {names.map((_,idx)=> (
-              <input key={idx} value={names[idx]} onChange={e=>handleNameChange(idx, e.target.value)} placeholder={`Jugador ${idx+1}`} />
-            ))}
-          </form>
-
-          {names.length>0 && (
-            <button className="primary" onClick={sortear}>🎲 Sortear selecciones</button>
-          )}
-        </section>
-
-        <section id="resultado" className="resultado" aria-live="polite">
-          {resultado.length>0 && <h3>Resultado del sorteo</h3>}
-          {resultado.map((r, i)=> (
-            <div key={i} className="item">🎮 <strong>{r.player}</strong> ➝ ⚽ <strong>{r.team}</strong></div>
-          ))}
-        </section>
+        <Controls
+          num={num}
+          setNum={setNum}
+          names={names}
+          handleNameChange={handleNameChange}
+          crearCampos={crearCampos}
+          sortear={sortear}
+          maxPlayers={SELECCIONES.length}
+        />
+        <Results resultado={resultado} />
       </main>
 
       <footer className="site-footer">
@@ -73,7 +57,9 @@ export default function App(){
         </div>
       </footer>
 
-      <img src="/public/assets/fifa.jpg" alt="fondo decorativo" className="page-bg" />
+      {/* CORRECCIÓN: Con Vite, los archivos en la carpeta `public` se sirven desde la raíz.
+          La ruta correcta no debe incluir `/public`. */}
+      <img src="/assets/fifa.jpg" alt="fondo decorativo" className="page-bg" />
     </div>
   )
 }
