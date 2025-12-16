@@ -4,11 +4,12 @@ import { Header } from './Header.jsx';
 import { Controls } from './Controls.jsx';
 import { Results } from './Results.jsx';
 
+// Componente principal de la aplicación
 export default function App() {
   const [num, setNum] = useState('');
   const [names, setNames] = useState([]);
   const [resultado, setResultado] = useState([]);
-
+// Función para crear campos de entrada según el número de participantes
   function crearCampos() {
     const n = parseInt(num, 10);
     if (!n || n < 2 || n > SELECCIONES.length) {
@@ -18,13 +19,13 @@ export default function App() {
     setNames(Array.from({ length: n }, () => ''));
     setResultado([]);
   }
-
+// Función para manejar el cambio de nombres de jugadores
   function handleNameChange(i, value){
     const next = [...names]
     next[i]=value
     setNames(next)
   }
-
+// Función para realizar el sorteo
   function sortear(){
     if (names.some(n => n.trim() === '')) {
       alert('Completa todos los nombres');
@@ -33,7 +34,7 @@ export default function App() {
     const shuffled = [...SELECCIONES].sort(() => Math.random() - 0.5);
     setResultado(names.map((n, i) => ({ player: n, team: shuffled[i] })));
   }
-
+// Renderizado del componente
   return (
     <div className="app-root">
       <Header />

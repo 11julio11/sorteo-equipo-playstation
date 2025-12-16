@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Componente de controles para la aplicación
 export function Controls({ num, setNum, names, handleNameChange, crearCampos, sortear, maxPlayers }) {
   return (
     <section className="controls">

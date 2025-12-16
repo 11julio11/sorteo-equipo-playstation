@@ -1,6 +1,23 @@
 export const SELECCIONES = [
-  "Argentina", "Francia", "Brasil", "Inglaterra", "España", "Portugal",
-  "Alemania", "Italia", "Países Bajos", "Bélgica", "Croacia", "Uruguay",
-  "Colombia", "México", "Estados Unidos", "Japón", "Marruecos", "Suiza",
-  "Dinamarca", "Senegal"
+  { name: "Argentina", flag: "🇦🇷", crest: "/assets/argentina.jpg" },
+  { name: "Francia", flag: "🇫🇷", crest: "/assets/francia.jpg" },
+  { name: "Brasil", flag: "🇧🇷", crest: "/assets/brasil.jpg" },
+  { name: "Inglaterra", flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", crest: "/assets/inglaterra.jpg" },
+  { name: "Portugal", flag: "🇵🇹", crest: "/assets/portugal.jpg" },
+  { name: "Países Bajos", flag: "🇳🇱", crest: "/assets/paises-bajos.jpg" },
+  { name: "España", flag: "🇪🇸", crest: "/assets/españa.jpg" },
+  { name: "Alemania", flag: "🇩🇪", crest: "/assets/alemania.jpg" },
+  { name: "Italia", flag: "🇮🇹", crest: "/assets/italia.jpg" },
+  { name: "Bélgica", flag: "🇧🇪", crest: "/assets/belgica.jpg" },
+  { name: "Croacia", flag: "🇭🇷", crest: "/assets/croacia.jpg" },
+  { name: "Uruguay", flag: "🇺🇾", crest: "/assets/uruguay.jpg" },
+  { name: "Marruecos", flag: "🇲🇦", crest: "/assets/marruecos.jpg" },
+  { name: "Colombia", flag: "🇨🇴", crest: "/assets/colombia.jpg" },
+  { name: "Japón", flag: "🇯🇵", crest: "/assets/japon.jpg" },
+  { name: "Estados Unidos", flag: "🇺🇸", crest: "/assets/estados-unidos.jpg" },
+  { name: "Senegal", flag: "🇸🇳", crest: "/assets/senegal.jpg" },
+  { name: "Mali", flag: "🇲🇱", crest: "/assets/mali.jpg" },
+  { name: "Suiza", flag: "🇨🇭", crest: "/assets/suiza.jpg" },
+  { name: "Dinamarca", flag: "🇩🇰", crest: "/assets/dinamarca.jpg" },
+  { name: "México", flag: "🇲🇽", crest: "/assets/mexico.jpg" }
 ];

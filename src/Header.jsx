@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Componente de encabezado de la aplicación
 export function Header() {
   return (
     <header className="site-header">

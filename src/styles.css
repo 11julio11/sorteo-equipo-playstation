@@ -32,9 +32,37 @@ button:active{transform:translateY(1px)}
 .players-form{display:grid;gap:8px;margin-top:12px}
 
 .resultado{margin-top:18px}
-.resultado .item{background:#0b1220;padding:12px;border-radius:8px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.03)}
+.resultado .item{
+  background:#0b1220;
+  padding:12px;
+  border-radius:8px;
+  margin-bottom:10px;
+  border:1px solid rgba(255,255,255,0.03);
+  animation: fadeInUp 0.5s ease-out forwards; /* Aplicamos la animación */
+  display: flex;
+  align-items: center;
+}
+
+.team-crest {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  object-fit: contain;
+}
 
 .page-bg{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:1200px;opacity:0.15;pointer-events:none}
 
 @media (min-width:700px){.players-form{grid-template-columns:1fr 1fr}.controls{padding:22px}}
 @media (max-width:420px){:root{--container-max:420px}.header-inner h1{font-size:18px}input, button{padding:10px}}
+
+/* Definimos la animación de aparición */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
