@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import fifaImg from './assets/images/fifa.jpg';
 import { SELECCIONES } from './data/teams.js';
 import { Header } from './components/Header.jsx';
 import { Controls } from './components/Controls.jsx';
@@ -58,9 +59,8 @@ export default function App() {
         </div>
       </footer>
 
-        {/* Importar imagen de fondo desde assets para que Vite la incluya en el bundle */}
-        {/* eslint-disable-next-line import/no-unresolved */}
-        <img src={require('./assets/images/fifa.jpg')} alt="fondo decorativo" className="page-bg" />
+        {/* Imagen de fondo importada desde src/assets/images */}
+        <img src={fifaImg} alt="fondo decorativo" className="page-bg" />
     </div>
   )
 }
