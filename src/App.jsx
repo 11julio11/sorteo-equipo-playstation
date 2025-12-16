@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { SELECCIONES } from './teams.js';
-import { Header } from './Header.jsx';
-import { Controls } from './Controls.jsx';
-import { Results } from './Results.jsx';
+import { SELECCIONES } from './data/teams.js';
+import { Header } from './components/Header.jsx';
+import { Controls } from './components/Controls.jsx';
+import { Results } from './components/Results.jsx';
 
 // Componente principal de la aplicación
 export default function App() {
