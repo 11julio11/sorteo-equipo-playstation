@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import fifaImg from './assets/images/fifa.jpg';
 import { SELECCIONES } from './data/teams.js';
+import { CLUBS } from './data/clubs.js';
 import { Header } from './components/Header.jsx';
 import { Controls } from './components/Controls.jsx';
 import { Results } from './components/Results.jsx';
@@ -10,10 +11,12 @@ export default function App() {
   const [num, setNum] = useState('');
   const [names, setNames] = useState([]);
   const [resultado, setResultado] = useState([]);
+  const [category, setCategory] = useState('paises');
+  const currentList = category === 'paises' ? SELECCIONES : CLUBS;
 // Función para crear campos de entrada según el número de participantes
   function crearCampos() {
     const n = parseInt(num, 10);
-    if (!n || n < 2 || n > SELECCIONES.length) {
+    if (!n || n < 2 || n > currentList.length) {
       alert('Número inválido de participantes');
       return;
     }
@@ -32,7 +35,7 @@ export default function App() {
       alert('Completa todos los nombres');
       return;
     }
-    const shuffled = [...SELECCIONES].sort(() => Math.random() - 0.5);
+    const shuffled = [...currentList].sort(() => Math.random() - 0.5);
     setResultado(names.map((n, i) => ({ player: n, team: shuffled[i] })));
   }
 // Renderizado del componente
@@ -44,18 +47,20 @@ export default function App() {
         <Controls
           num={num}
           setNum={setNum}
+          category={category}
+          setCategory={setCategory}
           names={names}
           handleNameChange={handleNameChange}
           crearCampos={crearCampos}
           sortear={sortear}
-          maxPlayers={SELECCIONES.length}
+          maxPlayers={currentList.length}
         />
         <Results resultado={resultado} />
       </main>
 
       <footer className="site-footer">
         <div className="container">
-          <p>&copy; 2025 Sorteo PlayStation</p>
+          <p>&copy; 2025 Sorteo Equipos</p>
         </div>
       </footer>
 

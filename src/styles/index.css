@@ -2,7 +2,7 @@
   --bg:#0f1720;
   --card:#1f2937;
   --accent:#00c853;
-  --muted:#9ca3af;
+  --muted:#dfe1e6;
   --container-max:900px;
 }
 
@@ -11,8 +11,8 @@ html,body,#root{height:100%}
 body{
   margin:0;
   font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  background:linear-gradient(180deg,#071028 0%, var(--bg) 100%);
-  color:#e6eef6;
+  background:linear-gradient(180deg,#1b0f9a 0%, var(--bg) 100%);
+  color:#0deb3d;
 }
 
 .container{width:100%;max-width:var(--container-max);margin:0 auto;padding:20px}
@@ -23,6 +23,33 @@ body{
 
 .controls{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
 .controls label{display:block;margin-bottom:8px;color:var(--muted)}
+/* Selector (dataset) styles */
+.controls select{
+  width:100%;
+  padding:10px 12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  color:inherit;
+  -webkit-appearance:none;
+  appearance:none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%), linear-gradient(135deg, var(--accent) 50%, transparent 50%), linear-gradient(to right, rgba(0,0,0,0.15), rgba(0,0,0,0.15));
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 1.5em 2.5em;
+  background-repeat: no-repeat;
+  transition: box-shadow .15s, transform .08s;
+}
+.controls select:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(0,200,83,0.12);
+  border-color:var(--accent);
+}
+
+/* Mejoras visuales para botones */
+button{background:var(--accent);color:#061017;border:none;font-weight:600;cursor:pointer;padding:10px 12px;border-radius:8px}
+button:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,200,83,0.08)}
+button.primary{margin-top:12px}
 input, button, .players-form input{width:100%;padding:10px 12px;margin-top:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
 
 button{background:var(--accent);color:#061017;border:none;font-weight:600;cursor:pointer}
@@ -50,7 +77,39 @@ button.primary{margin-top:12px}
   flex-shrink:0;
 }
 
-.page-bg{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:1200px;opacity:0.15;pointer-events:none}
+.page-bg{
+  position:fixed;
+  left:50%;
+  bottom:-5%;
+  transform:translateX(-50%) translateY(0) scale(1);
+  width:140vw;
+  max-width:none;
+  height:auto;
+  opacity:0.14;
+  pointer-events:none;
+  z-index:0;
+  filter:drop-shadow(0 24px 48px rgba(0,0,0,0.45)) saturate(1.02);
+  animation: floatWave 12s ease-in-out infinite;
+  transition: transform .6s ease, opacity .25s ease;
+}
+
+@keyframes floatWave{
+  0%{transform:translateX(-50%) translateY(0) rotate(-1deg) scale(1)}
+  50%{transform:translateX(-50%) translateY(-6%) rotate(0.5deg) scale(1.02)}
+  100%{transform:translateX(-50%) translateY(0) rotate(1deg) scale(1)}
+}
+
+@media (max-width:900px){
+  .page-bg{width:200vw;opacity:0.12;bottom:-10%;animation-duration:10s}
+}
+
+@media (max-width:420px){
+  .page-bg{width:280vw;opacity:0.09;bottom:-18%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .page-bg{animation:none;transition:none}
+}
 
 @media (min-width:700px){.players-form{grid-template-columns:1fr 1fr}.controls{padding:22px}}
 @media (max-width:420px){:root{--container-max:420px}.header-inner h1{font-size:18px}input, button{padding:10px}}

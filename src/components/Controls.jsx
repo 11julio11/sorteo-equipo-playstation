@@ -1,9 +1,15 @@
 import React from 'react';
 
 // Componente de controles para la aplicación
-export function Controls({ num, setNum, names, handleNameChange, crearCampos, sortear, maxPlayers }) {
+export function Controls({ num, setNum, names, handleNameChange, crearCampos, sortear, maxPlayers, category, setCategory }) {
   return (
     <section className="controls">
+      <label htmlFor="datasetSelect">Menu de opciones</label>
+      <select id="datasetSelect" value={category} onChange={e => setCategory(e.target.value)}>
+        <option value="paises">Países</option>
+        <option value="champions">Champions</option>
+      </select>
+
       <label htmlFor="numPlayers">Número de participantes</label>
       <input
         id="numPlayers"
@@ -25,7 +31,7 @@ export function Controls({ num, setNum, names, handleNameChange, crearCampos, so
       )}
       {/* Mostrar botón de sorteo si ya se ingresaron los nombres*/}
       {names.length > 0 && (
-        <button className="primary" onClick={sortear}>🎲 Sortear selecciones</button>
+        <button className="primary" onClick={sortear}>🎲 Sortear equipos</button>
       )}
     </section>
   );
