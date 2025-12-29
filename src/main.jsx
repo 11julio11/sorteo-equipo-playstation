@@ -4,7 +4,7 @@ import App from './App'
 import './styles/index.css'
 
 // Inyectar favicon dinámicamente desde assets procesados por Vite
-import playstationFavicon from './assets/images/playstation.jpg'
+import playstationFavicon from './assets/images/paises/playstation.webp'
 const link = document.createElement('link')
 link.rel = 'icon'
 link.href = playstationFavicon

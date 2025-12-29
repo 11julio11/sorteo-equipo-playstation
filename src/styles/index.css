@@ -18,7 +18,7 @@ body{
 .container{width:100%;max-width:var(--container-max);margin:0 auto;padding:20px}
 
 .site-header{padding:18px 0}
-.header-inner{display:flex;align-items:center;justify-content:center}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
 .main-content{padding:10px 0 80px}
 
 .controls{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
@@ -76,6 +76,28 @@ button.primary{margin-top:12px}
   border-radius:6px;
   flex-shrink:0;
 }
+
+.language-switcher {
+  display: flex;
+  gap: 8px;
+}
+
+.language-switcher button {
+  background-color: transparent;
+  color: var(--muted);
+  border: 1px solid var(--muted);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switcher button.active {
+  background-color: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
 
 .page-bg{
   position:fixed;
