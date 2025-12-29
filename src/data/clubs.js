@@ -1,6 +1,6 @@
 import realmadrid from '../assets/images/cludes/realmadrid.webp';
 import acmilan from '../assets/images/cludes/acmilan.webp';
-import bayernmúnich from '../assets/images/cludes/BayernMúnich.webp';
+import bayernMunich from '../assets/images/cludes/BayernMúnich.webp';
 import liverpool from '../assets/images/cludes/liverpool.webp';
 import barcelona from '../assets/images/cludes/barcelona.webp';
 import ajax from '../assets/images/cludes/ajax.webp';
@@ -22,7 +22,7 @@ import celtic from '../assets/images/cludes/celtic.webp';
 export const CLUBS = [
   { name: 'Real Madrid', country: 'España', titles: 14, crest: realmadrid },
   { name: 'AC Milan', country: 'Italia', titles: 7, crest: acmilan },
-  { name: 'Bayern Múnich', country: 'Alemania', titles: 6, crest: bayernmúnich },
+  { name: 'Bayern Múnich', country: 'Alemania', titles: 6, crest: bayernMunich },
   { name: 'Liverpool', country: 'Inglaterra', titles: 6, crest: liverpool },
   { name: 'Barcelona', country: 'España', titles: 5, crest: barcelona },
   { name: 'Ajax', country: 'Países Bajos', titles: 4, crest: ajax },
